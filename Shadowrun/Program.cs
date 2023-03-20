@@ -5,8 +5,8 @@ while (true)
     var dice = GetIntResponse("Number of Dice in pool?");
     var threshold = GetIntResponse("Threshold of test?");
     var usingEdge = GetBoolResponse("Using edge?");
-    var roller = new Roller();
-    Console.WriteLine($"Result: {roller.CheckSuccess(dice, threshold, usingEdge)}");
+    var result = new Roller().CheckSuccess(dice, threshold, usingEdge);
+    Console.WriteLine($"Result: {result.OverallResult} with net hits: {result.NetHits}");
 }
 
 
