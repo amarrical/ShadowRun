@@ -1,3 +1,5 @@
+using Shadowrun.Dice;
+
 namespace Shadowrun.tests.Stubs;
 
 public class StubRng : IRng

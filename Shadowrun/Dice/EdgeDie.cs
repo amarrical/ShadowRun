@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Reflection.Metadata.Ecma335;
 
-namespace Shadowrun;
+namespace Shadowrun.Dice;
 
 public class EdgeDie : IDie
 {
@@ -11,13 +11,14 @@ public class EdgeDie : IDie
         this.rng = rng ?? new Rng();
     }
 
-    public int RollHits()
+    public DieResult RollHits()
     {
         return rng.Next(1, 6) switch
         {
-            < 5 => 0,
-            5 => 1,
-            6 => 1 + this.RollHits(),
+            1 => new DieResult(0, 1),
+            < 5 => new DieResult(0, 0),
+            5 => new DieResult(1, 0),
+            6 => new DieResult(1, 0) + RollHits(),
             _ => throw new Exception("Roll not between 1 and 6")
         };
     }

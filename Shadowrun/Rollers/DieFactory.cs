@@ -1,4 +1,4 @@
-﻿using Shadowrun;
+﻿using Shadowrun.Dice;
 
 public class DieFactory : IDieFactory
 {

@@ -1,4 +1,5 @@
 using FluentAssertions;
+using Shadowrun.Dice;
 using Shadowrun.tests.Stubs;
 
 namespace Shadowrun.tests;

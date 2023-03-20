@@ -1,13 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using System.Runtime.CompilerServices;
-
-var dice = GetIntResponse("Number of Dice in pool?");
-var threshold = GetIntResponse("Threshold of test?");
-var usingEdge = GetBoolResponse("Using edge?");
-var roller = new Roller();
-Console.WriteLine(roller.CheckSuccess(dice, threshold, usingEdge));
-
+while (true)
+{
+    var dice = GetIntResponse("Number of Dice in pool?");
+    var threshold = GetIntResponse("Threshold of test?");
+    var usingEdge = GetBoolResponse("Using edge?");
+    var roller = new Roller();
+    Console.WriteLine($"Result: {roller.CheckSuccess(dice, threshold, usingEdge)}");
+}
 
 
 

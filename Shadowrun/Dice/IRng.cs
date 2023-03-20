@@ -1,4 +1,4 @@
-﻿namespace Shadowrun;
+﻿namespace Shadowrun.Dice;
 
 public interface IRng
 {

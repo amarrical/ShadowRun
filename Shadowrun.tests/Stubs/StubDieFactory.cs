@@ -1,4 +1,6 @@
-﻿namespace Shadowrun.tests.Stubs;
+﻿using Shadowrun.Dice;
+
+namespace Shadowrun.tests.Stubs;
 
 public class StubDieFactory : IDieFactory
 {

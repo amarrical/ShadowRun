@@ -1,8 +1,8 @@
-﻿namespace Shadowrun;
+﻿namespace Shadowrun.Dice;
 
 public class Rng : IRng
 {
-    private Random random = new Random(Guid.NewGuid().GetHashCode());
+    private readonly Random random = new Random(Guid.NewGuid().GetHashCode());
 
     public int Next(int min, int max)
     {
