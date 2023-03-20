@@ -1,20 +1,10 @@
 ﻿namespace Shadowrun.Dice;
 
-public class DieResult
+public record DieResult(int Hits, int Ones)
 {
-    public int Hits { get; set; }
+    public int Hits { get; set; } = Hits;
 
-    public int Ones { get; set; }
-
-    public DieResult()
-    {
-    }
-
-    public DieResult(int hits, int ones)
-    {
-        Hits = hits;
-        Ones = ones;
-    }
+    public int Ones { get; set; } = Ones;
 
     public static DieResult operator +(DieResult d1, DieResult d2)
     {

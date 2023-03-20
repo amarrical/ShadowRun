@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Shadowrun.tests.Stubs;
 
-namespace Shadowrun.tests;
+namespace Shadowrun.tests.Rollers;
 
 public class RollerTests
 {
@@ -13,18 +13,18 @@ public class RollerTests
     [SetUp]
     public void SetUp()
     {
-        this.sequence = new Sequence();
-        this.factory = new StubDieFactory(this.sequence);
+        sequence = new Sequence();
+        factory = new StubDieFactory(sequence);
 
-        this.target = new Roller(this.factory);
+        target = new Roller(factory);
     }
 
     [Test]
     public void CriticalGlitchOnFailureWithMoreThanHalfDiceBeingOne()
     {
-        this.sequence.SetSequence(1);
+        sequence.SetSequence(1);
 
-        var result = this.target.CheckSuccess(1, 1, false);
+        var result = target.CheckSuccess(1, 1, false);
 
         result.OverallResult.Should().Be(RollResult.Result.CriticalGlitch);
     }
@@ -32,9 +32,9 @@ public class RollerTests
     [Test]
     public void CriticalGlitchOnFailureWithMoreThanHalfDiceBeingOneWith3Dice()
     {
-        this.sequence.SetSequence(1, 1, 4);
+        sequence.SetSequence(1, 1, 4);
 
-        var result = this.target.CheckSuccess(3, 1, false);
+        var result = target.CheckSuccess(3, 1, false);
 
         result.OverallResult.Should().Be(RollResult.Result.CriticalGlitch);
     }
@@ -42,9 +42,9 @@ public class RollerTests
     [Test]
     public void SimpleFailureIfLessThanHalfDiceAreOneWith3Dice()
     {
-        this.sequence.SetSequence(1, 3, 4);
+        sequence.SetSequence(1, 3, 4);
 
-        var result = this.target.CheckSuccess(3, 1, false);
+        var result = target.CheckSuccess(3, 1, false);
 
         result.OverallResult.Should().Be(RollResult.Result.Failure);
     }
