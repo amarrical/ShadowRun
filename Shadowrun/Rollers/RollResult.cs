@@ -1,18 +1,9 @@
-﻿
+﻿namespace Shadowrun.Rollers;
 
-
-public class RollResult
+public record RollResult(int NetHits, RollResult.Result OverallResult)
 {
-    public RollResult(int netHits, Result overallResult)
-    {
-        this.NetHits = netHits;
-        this.OverallResult = overallResult;
-    }
+    public Result OverallResult { get; } = OverallResult;
 
-    public Result OverallResult { get; set; }
-
-    public int NetHits { get; }
-    
     public enum Result
     {
         Success,

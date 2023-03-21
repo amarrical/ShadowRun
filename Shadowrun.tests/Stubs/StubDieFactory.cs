@@ -2,6 +2,8 @@
 
 namespace Shadowrun.tests.Stubs;
 
+using Shadowrun.Rollers;
+
 public class StubDieFactory : IDieFactory
 {
     private readonly Sequence sequence;

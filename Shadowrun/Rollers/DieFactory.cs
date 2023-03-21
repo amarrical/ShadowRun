@@ -1,4 +1,6 @@
-﻿using Shadowrun.Dice;
+﻿namespace Shadowrun.Rollers;
+
+using Dice;
 
 public class DieFactory : IDieFactory
 {

@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using Shadowrun.Rollers;
 using Shadowrun.tests.Stubs;
 
 namespace Shadowrun.tests.Rollers;
@@ -47,5 +48,15 @@ public class RollerTests
         var result = target.CheckSuccess(3, 1, false);
 
         result.OverallResult.Should().Be(RollResult.Result.Failure);
+    }
+
+    [Test]
+    public void GlitchOnSuccessWithHalfOfDiceBeingOne()
+    {
+        sequence.SetSequence(1, 1, 5, 6);
+
+        var result = target.CheckSuccess(4, 2, false);
+
+        result.OverallResult.Should().Be(RollResult.Result.Glitch);
     }
 }

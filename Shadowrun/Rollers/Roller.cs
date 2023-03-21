@@ -1,5 +1,7 @@
 ﻿using Shadowrun.Dice;
 
+namespace Shadowrun.Rollers;
+
 public class Roller : IRoller
 {
     private IDieFactory dieFactory;
