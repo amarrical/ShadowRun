@@ -13,37 +13,37 @@ public class DieTests
     [SetUp]
     public void Setup()
     {
-        rng = new StubRng();
+        this.rng = new StubRng();
 
-        target = new Die(rng);
+        this.target = new Die(this.rng);
     }
 
     [Test]
     public void LowValuesDoNotScoreHit()
     {
-        rng.SetSequence(1, 2, 3, 4);
-        target.RollHits().Hits.Should().Be(0);
-        target.RollHits().Hits.Should().Be(0);
-        target.RollHits().Hits.Should().Be(0);
-        target.RollHits().Hits.Should().Be(0);
+        this.rng.SetSequence(1, 2, 3, 4);
+        this.target.RollHits().Hits.Should().Be(0);
+        this.target.RollHits().Hits.Should().Be(0);
+        this.target.RollHits().Hits.Should().Be(0);
+        this.target.RollHits().Hits.Should().Be(0);
     }
 
     [Test]
     public void RollsAbove5ShouldScoreHit()
     {
-        rng.SetSequence(4, 5, 6);
-        target.RollHits().Hits.Should().Be(0);
-        target.RollHits().Hits.Should().Be(1);
-        target.RollHits().Hits.Should().Be(1);
+        this.rng.SetSequence(4, 5, 6);
+        this.target.RollHits().Hits.Should().Be(0);
+        this.target.RollHits().Hits.Should().Be(1);
+        this.target.RollHits().Hits.Should().Be(1);
     }
 
     [Test]
     public void RollsAt6DoNotScoreMultipleHits()
     {
-        rng.SetSequence(6, 6, 6, 6);
-        target.RollHits().Hits.Should().Be(1);
-        target.RollHits().Hits.Should().Be(1);
-        target.RollHits().Hits.Should().Be(1);
-        target.RollHits().Hits.Should().Be(1);
+        this.rng.SetSequence(6, 6, 6, 6);
+        this.target.RollHits().Hits.Should().Be(1);
+        this.target.RollHits().Hits.Should().Be(1);
+        this.target.RollHits().Hits.Should().Be(1);
+        this.target.RollHits().Hits.Should().Be(1);
     }
 }

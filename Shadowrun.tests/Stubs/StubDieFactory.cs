@@ -2,7 +2,7 @@
 
 namespace Shadowrun.tests.Stubs;
 
-using Shadowrun.Rollers;
+using Shadowrun.Dice.Factories;
 
 public class StubDieFactory : IDieFactory
 {

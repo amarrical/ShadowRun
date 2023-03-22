@@ -6,7 +6,7 @@ public class Rng : IRng
 
     public int Next(int min, int max)
     {
-        var roll = random.Next(min, max + 1);
+        var roll = this.random.Next(min, max + 1);
         Console.WriteLine($"Rolled: {roll}");
         return roll;
     }

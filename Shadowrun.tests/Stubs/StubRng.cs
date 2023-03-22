@@ -19,6 +19,6 @@ public class StubRng : IRng
 
     public int Next(int min, int max)
     {
-        return sequence.Next();
+        return this.sequence.Next();
     }
 }

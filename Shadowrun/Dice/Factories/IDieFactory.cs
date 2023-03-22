@@ -1,6 +1,6 @@
 ﻿using Shadowrun.Dice;
 
-namespace Shadowrun.Rollers;
+namespace Shadowrun.Dice.Factories;
 
 public interface IDieFactory
 {

@@ -1,4 +1,4 @@
-﻿namespace Shadowrun.Rollers;
+﻿namespace Shadowrun.Dice.Factories;
 
 using Dice;
 

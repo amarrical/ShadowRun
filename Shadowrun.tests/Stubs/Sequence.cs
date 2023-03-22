@@ -9,11 +9,11 @@ public class Sequence
 
     public int Next()
     {
-        if (!sequence.Any())
+        if (!this.sequence.Any())
             return 0;
 
-        var roll = sequence.First();
-        sequence.Remove(roll);
+        var roll = this.sequence.First();
+        this.sequence.Remove(roll);
         return roll;
     }
 }

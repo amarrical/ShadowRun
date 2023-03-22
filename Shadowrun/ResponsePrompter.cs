@@ -28,6 +28,14 @@ public class ResponsePrompter
             : this.GetBool(prompt);
     }
 
+    public Threshold GetThreshold(string prompt)
+    {
+        var response = this.Prompt(prompt);
+        return Enum.TryParse(response, out Threshold result)
+            ? result
+            : this.GetThreshold(prompt);
+    }
+
     private string? Prompt(string prompt)
     {
         Console.WriteLine(prompt);

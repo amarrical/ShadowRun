@@ -13,36 +13,36 @@ namespace Shadowrun.tests.Dice
         [SetUp]
         public void Setup()
         {
-            rng = new StubRng();
+            this.rng = new StubRng();
 
-            target = new EdgeDie(rng);
+            this.target = new EdgeDie(this.rng);
         }
 
         [Test]
         public void LowValuesDoNotScoreHit()
         {
-            rng.SetSequence(1, 2, 3, 4);
-            target.RollHits().Hits.Should().Be(0);
-            target.RollHits().Hits.Should().Be(0);
-            target.RollHits().Hits.Should().Be(0);
-            target.RollHits().Hits.Should().Be(0);
+            this.rng.SetSequence(1, 2, 3, 4);
+            this.target.RollHits().Hits.Should().Be(0);
+            this.target.RollHits().Hits.Should().Be(0);
+            this.target.RollHits().Hits.Should().Be(0);
+            this.target.RollHits().Hits.Should().Be(0);
         }
 
         [Test]
         public void RollsAbove5ShouldScoreHit()
         {
-            rng.SetSequence(4, 5, 6, 1);
-            target.RollHits().Hits.Should().Be(0);
-            target.RollHits().Hits.Should().Be(1);
-            target.RollHits().Hits.Should().Be(1);
+            this.rng.SetSequence(4, 5, 6, 1);
+            this.target.RollHits().Hits.Should().Be(0);
+            this.target.RollHits().Hits.Should().Be(1);
+            this.target.RollHits().Hits.Should().Be(1);
         }
 
         [Test]
         public void RollsAt6CanScoreMultipleHits()
         {
-            rng.SetSequence(6, 5, 6, 6, 5);
-            target.RollHits().Hits.Should().Be(2);
-            target.RollHits().Hits.Should().Be(3);
+            this.rng.SetSequence(6, 5, 6, 6, 5);
+            this.target.RollHits().Hits.Should().Be(2);
+            this.target.RollHits().Hits.Should().Be(3);
         }
     }
 }
