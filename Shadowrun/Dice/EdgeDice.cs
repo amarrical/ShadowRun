@@ -2,12 +2,15 @@
 
 using Results;
 
-public class EdgeDice : Dice
+public class EdgeDice : StandardDice
 {
     public EdgeDice(ICollection<IDie> dice) 
         : base(dice)
     {
     }
 
-    protected override DieResult Roll(int limit) => this.Roll();
+    public override DieResult Roll(int limit)
+    {
+        return base.Roll();
+    }
 }

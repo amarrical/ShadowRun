@@ -7,7 +7,7 @@ var prompter = new ResponsePrompter();
 
 while (true)
 {
-    var dieCount = prompter.getInt("Number of Dice in pool?");
+    var dieCount = prompter.getInt("Number of dice in pool?");
     var threshold = prompter.GetThreshold("Threshold of test?");
     var limit = prompter.getInt("Applicable limit?");
     var usingEdge = prompter.GetBool("Using edge?");
