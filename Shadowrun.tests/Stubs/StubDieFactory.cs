@@ -15,9 +15,12 @@ public class StubDieFactory : IDieFactory
 
     public void SetSequence(params int[] init) => this.sequence.SetSequence(init);
 
-    public ICollection<IDie> GenerateDice(int dieCount, bool usingEdge)
+    public IDice GenerateDice(int dieCount, bool usingEdge)
     {
         var rng = new StubRng(this.sequence);
-        return Enumerable.Range(1, dieCount).Select(i => usingEdge ? (IDie)new EdgeDie(rng) : new Die(rng)).ToList();
+        var dice = Enumerable.Range(1, dieCount).Select(i => usingEdge ? (IDie)new EdgeDie(rng) : new Die(rng)).ToList();
+        return usingEdge
+            ? new EdgeDice(dice)
+            : new StandardDice(dice);
     }
 }

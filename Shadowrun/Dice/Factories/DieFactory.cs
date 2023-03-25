@@ -1,11 +1,12 @@
 ﻿namespace Shadowrun.Dice.Factories;
 
-using Dice;
-
 public class DieFactory : IDieFactory
 {
-    public ICollection<IDie> GenerateDice(int dieCount, bool usingEdge)
+    public IDice GenerateDice(int dieCount, bool usingEdge)
     {
-        return Enumerable.Range(1, dieCount).Select(i => usingEdge ? (IDie)new EdgeDie() : new Die()).ToList();
+        var dice = Enumerable.Range(1, dieCount).Select(i => usingEdge ? (IDie)new EdgeDie() : new Die()).ToList();
+        return usingEdge
+            ? new EdgeDice(dice)
+            : new StandardDice(dice);
     }
 }

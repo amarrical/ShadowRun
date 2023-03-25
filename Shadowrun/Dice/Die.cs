@@ -11,13 +11,13 @@ public class Die : IDie
         this.rng = rng ?? new Rng();
     }
 
-    public DieResult RollHits()
+    public DieResult Roll()
     {
         return this.rng.Next(1, 6) switch
         {
-            1 => new DieResult(0, 1, 1),
-            < 5 => new DieResult(0, 0, 1),
-            >=5 => new DieResult(1, 0, 1),
+            1 => new DieResult(0, 1),
+            < 5 => new DieResult(0, 0),
+            >=5 => new DieResult(1, 0),
         };
     }
 }
